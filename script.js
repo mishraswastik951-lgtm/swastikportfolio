@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded',()=>{const reduced=window.matchMedi
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   const modal = document.getElementById('cert-modal');
   const span = document.querySelector('.cert-modal-close');
   const skillNameSpan = document.getElementById('cert-skill-name');
@@ -11,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.view-cert-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const skillCard = e.target.closest('.skill-card');
-      const skillName = skillCard.querySelector('h3').innerText;
+      const skillName = skillCard.querySelector('h3').innerText.trim();
       skillNameSpan.innerText = skillName;
       
       if (skillName.toLowerCase() === 'python') {
