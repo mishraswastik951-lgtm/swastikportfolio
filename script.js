@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       skillNameSpan.innerText = skillName;
       
       if (skillName.toLowerCase() === 'python') {
-        certImage.src = 'python-cert.png';
+        certImage.src = '/python-cert.png';
         certImage.style.display = 'block';
       } else {
         certImage.src = '';
