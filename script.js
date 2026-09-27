@@ -6,12 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('cert-modal');
   const span = document.querySelector('.cert-modal-close');
   const skillNameSpan = document.getElementById('cert-skill-name');
+  const certImage = document.getElementById('cert-image');
 
   document.querySelectorAll('.view-cert-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const skillCard = e.target.closest('.skill-card');
       const skillName = skillCard.querySelector('h3').innerText;
       skillNameSpan.innerText = skillName;
+      
+      if (skillName.toLowerCase() === 'python') {
+        certImage.src = 'python-cert.png';
+        certImage.style.display = 'block';
+      } else {
+        certImage.src = '';
+        certImage.style.display = 'none';
+      }
+      
       modal.style.display = 'block';
     });
   });
